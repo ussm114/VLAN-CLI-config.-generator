@@ -11,10 +11,15 @@ Use `py "generate vlan.py"`.
 ### Input
 Configured spreadsheet "vlan config - data.ods", helper file "template.ods" 
 ![Tables with data to configure](https://github.com/ussm114/VLAN-CLI-config.-generator/blob/main/photos/tables.png?raw=true "Tables")
+The cell must contain:  
+- a number: to specify which VLAN to assign an Interface traffic to;
+- a device name: to specify which device the Interface connects to.
+> [!NOTE]
+> Currently only supported architecture is Collapsed-Core.
+> There can be 1 Core switch, and many Access switches.
 ### Output
 Text files with CLI commands:  
 ![generated files](https://github.com/ussm114/VLAN-CLI-config.-generator/blob/main/photos/generated%20files.png?raw=true "generated files")
-Currently only supported architecture is Collapsed-Core: there can be 1 Core switch, and many Access switches.
 ## Tests
 Results: VLANs work correctly, traffic is properly organized: PCs on the same VLAN can communicate, PCs on different VLANs can't.
 ### Test case #1: check ping response from PCs on same VLAN (within same Access switch), and on different VLAN.
@@ -26,7 +31,7 @@ This shows correct operation of VLANs - limiting of broadcast range.
 #### #1b: Checked by ping from PC11
 Result:  
  - without VLANs: all PCs reply to ping;  
- - with VLANs  : only PC12 replies to ping.  
+ - with VLANs   : only PC12 replies to ping.  
 Result: This confirms correct operation of Switches with configured VLANs - PCs on different VLAN become unreachable.
 Results of ping from PC11 (192.168.1.11):
 ![Results of ping from PC11 (192.168.1.11)](https://github.com/ussm114/VLAN-CLI-config.-generator/blob/main/photos/test1b%20PC11%20summary.png?raw=true "Results of ping from PC11 (192.168.1.11)")
