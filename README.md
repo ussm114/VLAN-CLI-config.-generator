@@ -4,12 +4,13 @@ Generates CLI commmands for VLAN configuration of switches in Collapsed-Core net
 Advantages:  
 Bandwidth saving: Only relevant traffic is exchanged between switches: if a VLAN isn't used outside an access switch, its traffic will not be sent by trunk.  
 Semi-automatic work: speeds up the configuration stage.
-
 ## Usage
 Use `py "generate vlan.py"`.  
+  
 ![Usage](https://github.com/ussm114/VLAN-CLI-config.-generator/blob/main/photos/usage.png?raw=true "Usage")
 ### Input
 Configured spreadsheet "vlan config - data.ods", helper file "template.ods" 
+![Tables with data to configure](https://github.com/ussm114/VLAN-CLI-config.-generator/blob/main/photos/tables.png?raw=true "Tables")
 ### Output
 Text files with CLI commands:  
 ![generated files](https://github.com/ussm114/VLAN-CLI-config.-generator/blob/main/photos/generated%20files.png?raw=true "generated files")
