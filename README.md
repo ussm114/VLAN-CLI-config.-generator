@@ -20,8 +20,21 @@ The cell must contain:
 ### Output
 Text files with CLI commands:  
 ![generated files](https://github.com/ussm114/VLAN-CLI-config.-generator/blob/main/photos/generated%20files.png?raw=true "generated files")
-## Tests
+## Test
 Results: VLANs work correctly, traffic is properly organized: PCs on the same VLAN can communicate, PCs on different VLANs can't.
+### Architecture
+Tests were conducted on following network in Cisco Packet Tracer:
+![Simulated network](https://github.com/ussm114/VLAN-CLI-config.-generator/blob/main/photos/network%20architecture.png?raw=true "Simulated network")
+### Hosts setup
+Host number is its last octet of IP. Example of PC14 with IP .14:
+![Host setup](https://github.com/ussm114/VLAN-CLI-config.-generator/blob/main/photos/host%20setup%20-%20example%20PC14.png?raw=true "Host setup")
+### Configuring the switches
+Paste the generated commands in CLI. Results photos (before on the left, after on the right) :  
+The VLANs get added to switch database:
+![WS-A2 VLAN configuration](https://github.com/ussm114/VLAN-CLI-config.-generator/blob/main/photos/example%20conf%20ws-a2%20vlan%20before%20after.png?raw=true "WS-A2 VLAN configuration")  
+  
+The iterface gets assigned to a VLAN:
+![WS-A2 interface configuration](https://github.com/ussm114/VLAN-CLI-config.-generator/blob/main/photos/example%20conf%20ws-a2%20interface%20before%20after.png?raw=true "WS-A2 interface configuration")
 ### Test case #1: check ping response from PCs on same VLAN (within same Access switch), and on different VLAN.
 #### #1a: Checked by ping from PC1
 Result: After adding VLANs, the PC12 and PC22 become unavailable.     
@@ -45,11 +58,6 @@ Results of ping from PC21 (192.168.1.21):
 PC13 is on different Access Switch than PC21 (WS-A2 and WS-A3 respectively).
 The communication with PC13 is working correctly with VLANs, so the proper operation of Core switch is also confirmed.  
 ### Conclusion
-The script operates correctly: generates proper commands, such that both Core and Access switches are operating properly - the PCs on the same VLAN can communicate, the PCs on different VLANs can't. This means that there is proper traffic in both directions.
-
-## Architecture
-Tests were conducted on following network in Cisco Packet Tracer:
-![Alt text](https://github.com/ussm114/VLAN-CLI-config.-generator/blob/main/photos/network%20architecture.png?raw=true "Simulated network")
-
+The script operates correctly: generates proper commands for Core and Access - so that the PCs on the same VLAN can communicate, the PCs on different VLANs can't.
 ## Clarification
 I wrote and tested the program myself, without generative AI tools.
